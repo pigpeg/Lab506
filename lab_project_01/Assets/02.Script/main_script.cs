@@ -45,6 +45,32 @@ public class main_script : MonoBehaviour
     List<double> L_Histo3;
     List<double> L_Histo4;
 
+    //그랩
+    List<float> R_Greb0;
+    List<float> R_Greb1;
+    List<float> R_Greb2;
+    List<float> R_Greb3;
+    List<float> R_Greb4;
+
+    List<float> L_Greb0;
+    List<float> L_Greb1;
+    List<float> L_Greb2;
+    List<float> L_Greb3;
+    List<float> L_Greb4;
+
+    //그랩결과
+    List<int> R_Gr0;
+    List<int> R_Gr1;
+    List<int> R_Gr2;
+    List<int> R_Gr3;
+    List<int> R_Gr4;
+
+    List<int> L_Gr0;
+    List<int> L_Gr1;
+    List<int> L_Gr2;
+    List<int> L_Gr3;
+    List<int> L_Gr4;
+
     List<double> Histo; //오,왼 둘다
 
     float power;
@@ -62,6 +88,7 @@ public class main_script : MonoBehaviour
     void Start()
     {
         controller = new Controller();
+        
 
         //오른손
         R_PVL = new List<Vector>();
@@ -93,12 +120,40 @@ public class main_script : MonoBehaviour
         L_Histo3 = new List<double>();
         L_Histo4 = new List<double>();
 
+        //그랩
+        R_Greb0 = new List<float>();
+        R_Greb1 = new List<float>();
+        R_Greb2 = new List<float>();
+        R_Greb3 = new List<float>();
+        R_Greb4 = new List<float>();
+
+        L_Greb0 = new List<float>();
+        L_Greb1 = new List<float>();
+        L_Greb2 = new List<float>();
+        L_Greb3 = new List<float>();
+        L_Greb4 = new List<float>();
+
+        //그랩 결과
+        R_Gr0 = new List<int>();
+        R_Gr1 = new List<int>();
+        R_Gr2 = new List<int>();
+        R_Gr3 = new List<int>();
+        R_Gr4 = new List<int>();
+
+        L_Gr0 = new List<int>();
+        L_Gr1 = new List<int>();
+        L_Gr2 = new List<int>();
+        L_Gr3 = new List<int>();
+        L_Gr4 = new List<int>();
+
         //오,왼 둘다
         Histo = new List<double>();
 
         g = new GetGesture();
         svm = new SVM();
         gstLabel = GameObject.Find("InputField").GetComponent<InputField>();
+
+
     }
 
     // Update is called once per frame
@@ -109,6 +164,9 @@ public class main_script : MonoBehaviour
 
         R_Hand = null;
         L_Hand = null;
+
+        //R_Hand.IsPinching
+        //R_Hand.GrabAngle
 
         //왼손,오른손찾기
         if (frame1.Hands.Count > 0)
@@ -122,8 +180,13 @@ public class main_script : MonoBehaviour
             else L_Hand = frame1.Hands[1];
         }
 
-        if (R_Hand != null) print(R_Hand.Id);
+        if (R_Hand != null)
+        {
+            print(R_Hand.Id);
+        }
         if (L_Hand != null) print(L_Hand.Id);
+        
+        
 
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -146,6 +209,19 @@ public class main_script : MonoBehaviour
             LTV3.Clear();
             LTV4.Clear();
 
+            //그랩초기화
+            R_Gr0.Clear();
+            R_Gr1.Clear();
+            R_Gr2.Clear();
+            R_Gr3.Clear();
+            R_Gr4.Clear();
+
+            R_Greb0.Clear();
+            R_Greb1.Clear();
+            R_Greb2.Clear();
+            R_Greb3.Clear();
+            R_Greb4.Clear();
+
             //히스토그램초기화
             Histo.Clear();
         }
@@ -159,13 +235,76 @@ public class main_script : MonoBehaviour
             //오른손
             if (R_PVL.Count != 0)
             {
-                R_Histo = g.histograming(g.chainCode(g.normalize(g.resampling(R_PVL)))); //g.histograming(g.chainCode(g.normalize(g.resampling(R_PVL))));
 
-                R_Histo0 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV0))));
-                R_Histo1 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV1))));
-                R_Histo2 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV2))));
-                R_Histo3 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV3))));
-                R_Histo4 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV4))));
+                List<Vector> R, R0, R1, R2, R3, R4;
+
+                R = g.resampling(R_PVL);
+                R0 = g.resampling(RTV0);
+                R1 = g.resampling(RTV1);
+                R2 = g.resampling(RTV2);
+                R3 = g.resampling(RTV3);
+                R4 = g.resampling(RTV4);
+
+                R_Histo = g.histograming(g.chainCode(g.normalize(R))); //g.histograming(g.chainCode(g.normalize(g.resampling(R_PVL))));
+
+                R_Histo0 = g.histograming(g.chainCode(g.normalize(R0)));
+                R_Histo1 = g.histograming(g.chainCode(g.normalize(R1)));
+                R_Histo2 = g.histograming(g.chainCode(g.normalize(R2)));
+                R_Histo3 = g.histograming(g.chainCode(g.normalize(R3)));
+                R_Histo4 = g.histograming(g.chainCode(g.normalize(R4)));
+
+                float fta0_max = 0;
+                float fta1_max = 0;
+                float fta2_max = 0;
+                float fta3_max = 0;
+                float fta4_max = 0;
+
+                //손가락-손바닥 거리
+                for (int i = 0; i < R2.Count; i++)
+                {
+                    R_Greb0.Add(R0[i].DistanceTo(R[i]));
+                    R_Greb1.Add(R1[i].DistanceTo(R[i]));
+                    R_Greb2.Add(R2[i].DistanceTo(R[i]));
+                    R_Greb3.Add(R3[i].DistanceTo(R[i]));
+                    R_Greb4.Add(R4[i].DistanceTo(R[i]));
+                }
+                for (int i = 0; i < R_Greb0.Count; i++)
+                {
+                    fta0_max = R_Greb0[i] > fta0_max ? R_Greb0[i] : fta0_max;
+                    fta1_max = R_Greb1[i] > fta1_max ? R_Greb1[i] : fta1_max;
+                    fta2_max = R_Greb2[i] > fta2_max ? R_Greb2[i] : fta2_max;
+                    fta3_max = R_Greb3[i] > fta3_max ? R_Greb3[i] : fta3_max;
+                    fta4_max = R_Greb4[i] > fta4_max ? R_Greb4[i] : fta4_max;
+                }
+                for (int i = 0; i < R_Greb0.Count; i++)
+                {
+                    if ((R_Greb0[i] / fta0_max) >= 0.90) R_Gr0.Add(1);
+                    else if ((R_Greb0[i] / fta0_max) >= 0.55) R_Gr0.Add(2);
+                    else R_Gr0.Add(3);
+
+                    if ((R_Greb1[i] / fta1_max) >= 0.90) R_Gr1.Add(1);
+                    else if ((R_Greb1[i] / fta1_max) >= 0.55) R_Gr1.Add(2);
+                    else R_Gr1.Add(3);
+
+                    if ((R_Greb2[i] / fta2_max) >= 0.90) R_Gr2.Add(1);
+                    else if ((R_Greb2[i] / fta2_max) >= 0.55) R_Gr2.Add(2);
+                    else R_Gr2.Add(3);
+
+                    if ((R_Greb3[i] / fta3_max) >= 0.90) R_Gr3.Add(1);
+                    else if ((R_Greb3[i] / fta3_max) >= 0.55) R_Gr3.Add(2);
+                    else R_Gr3.Add(3);
+
+                    if ((R_Greb4[i] / fta4_max) >= 0.90) R_Gr4.Add(1);
+                    else if ((R_Greb4[i] / fta4_max) >= 0.55) R_Gr4.Add(2);
+                    else R_Gr4.Add(3);
+                }
+
+                //그랩 리셈플링
+                R_Gr0 = g.grab_resampling(R_Gr0);
+                R_Gr1 = g.grab_resampling(R_Gr1);
+                R_Gr2 = g.grab_resampling(R_Gr2);
+                R_Gr3 = g.grab_resampling(R_Gr3);
+                R_Gr4 = g.grab_resampling(R_Gr4);
 
                 for (int i = 0; i < R_Histo.Count; i++) Histo.Add(R_Histo[i]);
                 for (int i = 0; i < R_Histo0.Count; i++) Histo.Add(R_Histo0[i]);
@@ -173,6 +312,13 @@ public class main_script : MonoBehaviour
                 for (int i = 0; i < R_Histo2.Count; i++) Histo.Add(R_Histo2[i]);
                 for (int i = 0; i < R_Histo3.Count; i++) Histo.Add(R_Histo3[i]);
                 for (int i = 0; i < R_Histo4.Count; i++) Histo.Add(R_Histo4[i]);
+
+
+                for (int i = 0; i < R_Gr0.Count; i++) Histo.Add(R_Gr0[i]);
+                for (int i = 0; i < R_Gr1.Count; i++) Histo.Add(R_Gr1[i]);
+                for (int i = 0; i < R_Gr2.Count; i++) Histo.Add(R_Gr2[i]);
+                for (int i = 0; i < R_Gr3.Count; i++) Histo.Add(R_Gr3[i]);
+                for (int i = 0; i < R_Gr4.Count; i++) Histo.Add(R_Gr4[i]);
             }
 
 
@@ -246,6 +392,19 @@ public class main_script : MonoBehaviour
             LTV3.Clear();
             LTV4.Clear();
 
+            //그랩초기화
+            R_Gr0.Clear();
+            R_Gr1.Clear();
+            R_Gr2.Clear();
+            R_Gr3.Clear();
+            R_Gr4.Clear();
+
+            R_Greb0.Clear();
+            R_Greb1.Clear();
+            R_Greb2.Clear();
+            R_Greb3.Clear();
+            R_Greb4.Clear();
+
             //히스토그램초기화
             Histo.Clear();
         }
@@ -256,16 +415,80 @@ public class main_script : MonoBehaviour
 
 
 
+
             //오른손
             if (R_PVL.Count != 0)
             {
-                R_Histo = g.histograming(g.chainCode(g.normalize(g.resampling(R_PVL)))); //g.histograming(g.chainCode(g.normalize(g.resampling(R_PVL))));
 
-                R_Histo0 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV0))));
-                R_Histo1 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV1))));
-                R_Histo2 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV2))));
-                R_Histo3 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV3))));
-                R_Histo4 = g.histograming(g.chainCode(g.normalize(g.resampling(RTV4))));
+                List<Vector> R, R0, R1, R2, R3, R4;
+
+                R = g.resampling(R_PVL);
+                R0 = g.resampling(RTV0);
+                R1 = g.resampling(RTV1);
+                R2 = g.resampling(RTV2);
+                R3 = g.resampling(RTV3);
+                R4 = g.resampling(RTV4);
+
+                R_Histo = g.histograming(g.chainCode(g.normalize(R))); //g.histograming(g.chainCode(g.normalize(g.resampling(R_PVL))));
+
+                R_Histo0 = g.histograming(g.chainCode(g.normalize(R0)));
+                R_Histo1 = g.histograming(g.chainCode(g.normalize(R1)));
+                R_Histo2 = g.histograming(g.chainCode(g.normalize(R2)));
+                R_Histo3 = g.histograming(g.chainCode(g.normalize(R3)));
+                R_Histo4 = g.histograming(g.chainCode(g.normalize(R4)));
+
+                float fta0_max = 0;
+                float fta1_max = 0;
+                float fta2_max = 0;
+                float fta3_max = 0;
+                float fta4_max = 0;
+
+                //손가락-손바닥 거리
+                for (int i = 0; i < R2.Count; i++)
+                {
+                    R_Greb0.Add(R0[i].DistanceTo(R[i]));
+                    R_Greb1.Add(R1[i].DistanceTo(R[i]));
+                    R_Greb2.Add(R2[i].DistanceTo(R[i]));
+                    R_Greb3.Add(R3[i].DistanceTo(R[i]));
+                    R_Greb4.Add(R4[i].DistanceTo(R[i]));
+                }
+                for (int i = 0; i < R_Greb0.Count; i++)
+                {
+                    fta0_max = R_Greb0[i] > fta0_max ? R_Greb0[i] : fta0_max;
+                    fta1_max = R_Greb1[i] > fta1_max ? R_Greb1[i] : fta1_max;
+                    fta2_max = R_Greb2[i] > fta2_max ? R_Greb2[i] : fta2_max;
+                    fta3_max = R_Greb3[i] > fta3_max ? R_Greb3[i] : fta3_max;
+                    fta4_max = R_Greb4[i] > fta4_max ? R_Greb4[i] : fta4_max;
+                }
+                for (int i = 0; i < R_Greb0.Count; i++)
+                {
+                    if ((R_Greb0[i] / fta0_max) >= 0.90) R_Gr0.Add(1);
+                    else if ((R_Greb0[i] / fta0_max) >= 0.55) R_Gr0.Add(2);
+                    else R_Gr0.Add(3);
+
+                    if ((R_Greb1[i] / fta1_max) >= 0.90) R_Gr1.Add(1);
+                    else if ((R_Greb1[i] / fta1_max) >= 0.55) R_Gr1.Add(2);
+                    else R_Gr1.Add(3);
+
+                    if ((R_Greb2[i] / fta2_max) >= 0.90) R_Gr2.Add(1);
+                    else if ((R_Greb2[i] / fta2_max) >= 0.55) R_Gr2.Add(2);
+                    else R_Gr2.Add(3);
+
+                    if ((R_Greb3[i] / fta3_max) >= 0.90) R_Gr3.Add(1);
+                    else if ((R_Greb3[i] / fta3_max) >= 0.55) R_Gr3.Add(2);
+                    else R_Gr3.Add(3);
+
+                    if ((R_Greb4[i] / fta4_max) >= 0.90) R_Gr4.Add(1);
+                    else if ((R_Greb4[i] / fta4_max) >= 0.55) R_Gr4.Add(2);
+                    else R_Gr4.Add(3);
+                }
+
+                //그랩 리셈플링
+                R_Gr0 = g.grab_resampling(R_Gr0);
+                R_Gr1 = g.grab_resampling(R_Gr1);
+                R_Gr2 = g.grab_resampling(R_Gr2);
+                R_Gr3 = g.grab_resampling(R_Gr3);
+                R_Gr4 = g.grab_resampling(R_Gr4);
 
                 for (int i = 0; i < R_Histo.Count; i++) Histo.Add(R_Histo[i]);
                 for (int i = 0; i < R_Histo0.Count; i++) Histo.Add(R_Histo0[i]);
@@ -273,6 +496,13 @@ public class main_script : MonoBehaviour
                 for (int i = 0; i < R_Histo2.Count; i++) Histo.Add(R_Histo2[i]);
                 for (int i = 0; i < R_Histo3.Count; i++) Histo.Add(R_Histo3[i]);
                 for (int i = 0; i < R_Histo4.Count; i++) Histo.Add(R_Histo4[i]);
+
+
+                for (int i = 0; i < R_Gr0.Count; i++) Histo.Add(R_Gr0[i]);
+                for (int i = 0; i < R_Gr1.Count; i++) Histo.Add(R_Gr1[i]);
+                for (int i = 0; i < R_Gr2.Count; i++) Histo.Add(R_Gr2[i]);
+                for (int i = 0; i < R_Gr3.Count; i++) Histo.Add(R_Gr3[i]);
+                for (int i = 0; i < R_Gr4.Count; i++) Histo.Add(R_Gr4[i]);
             }
 
 
@@ -324,29 +554,25 @@ public class main_script : MonoBehaviour
         {
             velocity = velocity * power;
             if (transform.position.x > -4.5)
-                GetComponent<Rigidbody>().AddForce(velocity*100);
-            predicted = 10;
-
+                GetComponent<Rigidbody>().AddForce(velocity);
+           
         }
         if (predicted == 1 && L_Hand == null && R_Hand != null)
         {
             velocity = velocity * -power;
-            GetComponent<Rigidbody>().AddForce(velocity * 100);
-            predicted = 10;
+            GetComponent<Rigidbody>().AddForce(velocity);
 
         }
 
         if (predicted == 2 && L_Hand == null && R_Hand != null)
         {
             velocity2 = velocity2 * -power;
-            GetComponent<Rigidbody>().AddForce(velocity2 * 100);
-            predicted = 10;
+            GetComponent<Rigidbody>().AddForce(velocity2);
         }
         if (predicted == 3 && L_Hand == null && R_Hand != null)
         {
             velocity2 = velocity2 * power;
-            GetComponent<Rigidbody>().AddForce(velocity2 * 100);
-            predicted = 10;
+            GetComponent<Rigidbody>().AddForce(velocity2);
         }
         if (predicted == 0 && L_Hand != null && R_Hand == null)  //위로
         {

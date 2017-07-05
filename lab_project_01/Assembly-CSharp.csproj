@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BDFB9976-2CB7-3884-2D02-51B71A00A6BD}</ProjectGuid>
+    <ProjectGuid>{EB0F6919-CDC1-6925-1A7E-F581D8F75AE9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -237,7 +237,6 @@
      <None Include="Assets\Plugins\net35\Noncommercial\License.txt" />
      <None Include="Assets\Data3 - 확대 축소.txt" />
      <None Include="Assets\default.txt" />
-     <None Include="Assets\Data1 - 좌우상하 30개.txt" />
      <None Include="Assets\LeapMotion\Core\Dependencies.txt" />
      <None Include="Assets\LeapMotion\Core\Resources\ThresholdOverlay.shader" />
      <None Include="Assets\Plugins\net35\Noncommercial\Accord.MachineLearning.xml" />
@@ -249,8 +248,6 @@
      <None Include="Assets\Data2 - 위 초기화.txt" />
      <None Include="Assets\Plugins\net35\GPL\Accord.Video.FFMPEG.xml" />
      <None Include="Assets\Plugins\net35\GPL\Accord.xml" />
-     <None Include="Assets\Data2 - 위 초기화 30개.txt" />
-     <None Include="Assets\Data1.txt" />
      <None Include="Assets\LeapMotion\Core\Version.txt" />
      <None Include="Assets\LeapMotion\Core\Resources\VertexOffsetShader.shader" />
      <None Include="Assets\Plugins\net35\GPL\Accord.Video.xml" />
@@ -278,103 +275,103 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="LeapCSharp.NET3.5">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/LeapMotion/Core/Plugins/LeapCSharp.NET3.5.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/LeapMotion/Core/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
  <Reference Include="InteractionEngineUtility">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/LeapMotion/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/LeapMotion/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Audio">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Audio.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Audio.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Audition">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Audition.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Audition.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Controls.Audio">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Controls.Audio.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Controls.Audio.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Controls">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Controls.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Controls.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Controls.Imaging">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Controls.Imaging.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Controls.Imaging.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Controls.Vision">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Controls.Vision.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Controls.Vision.dll</HintPath>
  </Reference>
  <Reference Include="Accord">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Fuzzy">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Fuzzy.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Fuzzy.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Genetic">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Genetic.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Genetic.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Imaging">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Imaging.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Imaging.dll</HintPath>
  </Reference>
  <Reference Include="Accord.IO">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.IO.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.IO.dll</HintPath>
  </Reference>
  <Reference Include="Accord.MachineLearning">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.MachineLearning.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.MachineLearning.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Math.Core">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Math.Core.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Math.Core.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Math">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Math.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Math.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Neuro">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Neuro.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Neuro.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Statistics">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Statistics.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Statistics.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Video.DirectShow">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Video.DirectShow.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Video.DirectShow.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Video">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Video.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Video.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Video.Kinect">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Video.Kinect.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Video.Kinect.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Video.VFW">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Video.VFW.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Video.VFW.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Video.Ximea">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Video.Ximea.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Video.Ximea.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Vision">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Accord.Vision.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Accord.Vision.dll</HintPath>
  </Reference>
  <Reference Include="ZedGraph">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/ZedGraph.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/ZedGraph.dll</HintPath>
  </Reference>
  <Reference Include="Accord">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/GPL/Accord.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/GPL/Accord.dll</HintPath>
  </Reference>
  <Reference Include="Accord.MachineLearning.GPL">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/GPL/Accord.MachineLearning.GPL.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/GPL/Accord.MachineLearning.GPL.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Video">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/GPL/Accord.Video.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/GPL/Accord.Video.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Imaging">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Noncommercial/Accord.Imaging.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Noncommercial/Accord.Imaging.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Imaging.Noncommercial">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Noncommercial/Accord.Imaging.Noncommercial.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Noncommercial/Accord.Imaging.Noncommercial.dll</HintPath>
  </Reference>
  <Reference Include="Accord.MachineLearning">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Noncommercial/Accord.MachineLearning.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Noncommercial/Accord.MachineLearning.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Math.Noncommercial">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Noncommercial/Accord.Math.Noncommercial.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Noncommercial/Accord.Math.Noncommercial.dll</HintPath>
  </Reference>
  <Reference Include="Accord.Statistics">
- <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (11) 이진트리완성/Assets/Plugins/net35/Noncommercial/Accord.Statistics.dll</HintPath>
+ <HintPath>C:/Users/506LAB/Desktop/lab_project_01 (8) 이진트리/Assets/Plugins/net35/Noncommercial/Accord.Statistics.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

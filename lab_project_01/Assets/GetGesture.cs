@@ -14,6 +14,82 @@ class GetGesture
         return (float)Math.Sqrt(Math.Pow(v1.x - v2.x, 2) + Math.Pow(v1.y - v2.y, 2) + Math.Pow(v1.z - v2.z, 2));
     }
 
+    /////////////////////////////////////////////////////////////
+
+    public List<int> grab_resampling(List<int> inputs)
+    {
+
+        List<int> list1;
+        List<int> list2;
+        List<int> results;
+
+        int resampling;     //리셈플링갯수
+        int total;
+        int last;
+        int count;
+
+
+        list1 = new List<int>();
+        list2 = new List<int>();
+        results = new List<int>();
+
+        resampling = 32;
+        total = inputs.Count;
+
+        last = inputs[0];
+        list1.Add(inputs[0]);
+        count = 0;
+
+        for (int i = 0; i < total; i++)
+        {
+            if (last == inputs[i]) count++;
+            else
+            {
+                list2.Add(count);
+                count = 1;
+                last = inputs[i];
+                list1.Add(inputs[i]);
+            }
+        }
+
+        list2.Add(count);
+
+        int list_total = 0;
+
+        //비율구해서 list2에다가 복사
+        for (int i = 0; i < list2.Count; i++)
+        {
+            list2[i] = (int)((float)list2[i] / (float)total * (float)resampling);
+            list_total += list2[i];
+        }
+
+        count = 0;
+        //리셈플링갯수보다 작을때
+        while (list_total < resampling)
+        {
+            if (count > list2.Count - 1) count = 0;
+            else
+            {
+                list2[count] = list2[count] + 1;
+                count++;
+                list_total++;
+            }
+        }
+
+        //리셈플링결과 만들기
+        for (int i = 0; i < list1.Count; i++)
+        {
+            for (int j = 0; j < list2[i]; j++) results.Add(list1[i]);
+        }
+
+        return results;
+    }
+
+
+    /////////////////////////////////////////////////////
+
+
+
     public List<Vector> resampling(List<Vector> VL)
     {
         Vector tempV;
@@ -52,7 +128,6 @@ class GetGesture
                 lengthA = 0;
             }
         }
-        int j = VL.Count;
         while (rHL.Count < numsample)
         {
             rHL.Add(VL[VL.Count - 1]);
