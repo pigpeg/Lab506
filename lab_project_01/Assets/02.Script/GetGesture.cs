@@ -194,40 +194,44 @@ class GetGesture
                 transCheck_z = true;
             else
                 transCheck_z = false;
+            if (!transCheck_x && !transCheck_z && !transCheck_y)
+            {
+                chainL.Add(0);
+            }
             if (!transCheck_x && !transCheck_z && transCheck_y) // 체인코드 8(상),17(하) 
             {
                 if (dy > 0)
-                    chainL.Add(8);
+                    chainL.Add(9);
                 else
-                    chainL.Add(17);
+                    chainL.Add(18);
             }
             else if ((transCheck_x || transCheck_z) && !transCheck_y)//xz평면상 체인코드 0~7
             {
                 if (dx > 0)
                 {
                     if (90.0 * 3.0 / 4.0 < degree && degree <= 90.0)
-                        chainL.Add(4);
-                    else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                         chainL.Add(5);
-                    else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
+                    else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                         chainL.Add(6);
-                    else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
+                    else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
                         chainL.Add(7);
+                    else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
+                        chainL.Add(8);
                     else if (-90.0 < degree && degree <= -90.0 * 3.0 / 4.0)
-                        chainL.Add(0);
+                        chainL.Add(1);
                 }
                 else
                 {
                     if (90.0 * 3.0 / 4.0 < degree && degree <= 90.0)
-                        chainL.Add(0);
-                    else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                         chainL.Add(1);
-                    else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
+                    else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                         chainL.Add(2);
-                    else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
+                    else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
                         chainL.Add(3);
-                    else if (-90.0 < degree && degree <= -90.0 * 3.0 / 4.0)
+                    else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
                         chainL.Add(4);
+                    else if (-90.0 < degree && degree <= -90.0 * 3.0 / 4.0)
+                        chainL.Add(5);
                 }
             }
 
@@ -238,28 +242,28 @@ class GetGesture
                     if (dx > 0)
                     {
                         if (90.0 * 3.0 / 4.0 < degree && degree <= 90.0)
-                            chainL.Add(13);
-                        else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                             chainL.Add(14);
-                        else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
+                        else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                             chainL.Add(15);
-                        else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
+                        else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
                             chainL.Add(16);
+                        else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
+                            chainL.Add(17);
                         else if (-90.0 < degree && degree <= -90.0 * 3.0 / 4.0)
-                            chainL.Add(9);
+                            chainL.Add(10);
                     }
                     else
                     {
                         if (90.0 * 3.0 / 4.0 < degree && degree <= 90.0)
-                            chainL.Add(9);
-                        else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                             chainL.Add(10);
-                        else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
+                        else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                             chainL.Add(11);
-                        else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
+                        else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
                             chainL.Add(12);
-                        else if (-90.0 < degree && degree <= -90.0 * 3.0 / 4.0)
+                        else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
                             chainL.Add(13);
+                        else if (-90.0 < degree && degree <= -90.0 * 3.0 / 4.0)
+                            chainL.Add(14);
                     }
                 }
 
@@ -268,28 +272,28 @@ class GetGesture
                     if (dx > 0)
                     {
                         if (90.0 * 3.0 / 4.0 < degree && degree <= 90.0)
-                            chainL.Add(22);
-                        else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                             chainL.Add(23);
-                        else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
+                        else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                             chainL.Add(24);
-                        else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
+                        else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
                             chainL.Add(25);
+                        else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
+                            chainL.Add(26);
                         else if (-90.0 < degree && degree <= -90.0 * 3.0 / 4.0)
-                            chainL.Add(18);
+                            chainL.Add(19);
                     }
                     else
                     {
                         if (90.0 * 3.0 / 4.0 < degree && degree <= 90.0)
-                            chainL.Add(18);
-                        else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                             chainL.Add(19);
-                        else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
+                        else if (90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 3.0 / 4.0)
                             chainL.Add(20);
-                        else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
+                        else if (-90.0 * 1.0 / 4.0 < degree && degree <= 90.0 * 1.0 / 4.0)
                             chainL.Add(21);
-                        else if (-90.0 < degree && degree <= -90.0 * 3.0 / 4.0)
+                        else if (-90.0 * 3.0 / 4.0 < degree && degree <= -90.0 * 1.0 / 4.0)
                             chainL.Add(22);
+                        else if (-90.0 < degree && degree <= -90.0 * 3.0 / 4.0)
+                            chainL.Add(23);
                     }
                 }
 
@@ -307,7 +311,7 @@ class GetGesture
         for (int i = 1; i <= n; i++)
         {
             chaincount.Clear();
-            for (int j = 0; j < 26; j++)
+            for (int j = 0; j < 27; j++)
                 chaincount.Add(0);
             for (int j = iNums * (i - 1); j < iNums * i; j++)
             {
@@ -339,13 +343,14 @@ class GetGesture
                     case 23: chaincount[23]++; break;
                     case 24: chaincount[24]++; break;
                     case 25: chaincount[25]++; break;
+                    case 26: chaincount[26]++; break;
 
                     default: break;
                 }
             }
-            for (int j = 0; j < 26; j++)
+            for (int j = 0; j < 27; j++)
                 chaincount[j] /= (iNums);
-            for (int j = 0; j < 26; j++)
+            for (int j = 0; j < 27; j++)
                 histograme.Add(chaincount[j]);
         }
         return histograme;
